@@ -1,10 +1,22 @@
+// Author: Khatib Mahad H.
+
 import UIKit
 
-// Use our caching lowercase func.
-let s:Character = "a"
-let st:Character = "A"
+func capitalizeFirst(string: String) -> String {
+    var characters = [Character](string)
+    let firstLetter = characters[0]
+    if firstLetter.asciiValue! > 96 &&  firstLetter.asciiValue! < 123  {
+        let uppercasedLetter = Character(UnicodeScalar(UInt8(firstLetter.asciiValue! - 32)))
+        characters[0] = uppercasedLetter
+    }
+    
+    return String(characters)
+}
+let testString1:String = "the first test"
+let testString2:String = "zebra is also a horse"
+let testString3:String = "THE END"
 
-let sss = String(UnicodeScalar(UInt8(65)))
+print(capitalizeFirst(string: testString1))
+print(capitalizeFirst(string: testString2))
+print(capitalizeFirst(string: testString3))
 
-print("%d", st.asciiValue)
-print("%@", sss)
